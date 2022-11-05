@@ -1,3 +1,9 @@
+/*
+Preparation for https://github.com/LeonardoRaihani/Technova/blob/main/MonitorFreeMemory-MySQL-Edit-Leonardo-Al-Raihani.ps1
+
+Creates database "ritmania".
+Creates columns ID, hostname, freememory and date.
+*/
 CREATE DATABASE IF NOT EXISTS ritmania;
 USE ritmania;
 CREATE TABLE `memoryusage` (
