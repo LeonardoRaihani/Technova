@@ -83,6 +83,7 @@ Start-Sleep 3
 $waitTime = New-Timespan -Seconds $seconds
 $stopTime = (Get-Date) + $waitTime
 
+# Literal hashes misconceptions
 $PSDefaultParameterValues['*:Encoding'] = 'utf8'
 
 # Switches functions
