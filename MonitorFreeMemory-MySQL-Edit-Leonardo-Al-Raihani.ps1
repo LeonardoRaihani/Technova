@@ -9,6 +9,7 @@
   Interval  :  De While-loop vraagt en schrijft om de 2 seconden de memory weg.
   Command   :  .\MonitorFreeMemory-Leonardo-Al-Raihani-Publicatie-versie.ps1 <seconds> <filename without sql-extension>
   Voorbeeld :  .\MonitorFreeMemory-Leonardo-Al-Raihani-Publicatie-versie.ps1 25 generated-query
+  Database  :  https://github.com/LeonardoRaihani/Technova/blob/main/MonitorFreeMemory.sql
 
 #>
 
@@ -58,7 +59,7 @@ $choiceLow = 1
 $choiceHigh = 3
 $global:choiceMade = "leeg"
 
-# Switches if file exist
+# Switches if file exists
 If ($fileExists -eq $true) {
     Write-Host "Het opgegeven bestand bestaal al!"
     While (($fileOptions -lt $choiceLow) -or ($fileOptions -gt $choiceHigh)) {
