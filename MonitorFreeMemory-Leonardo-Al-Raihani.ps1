@@ -11,9 +11,10 @@
 # Error handling
 $ErrorActionPreference= 'silentlycontinue'
 
-# Default
+# Define defaults
 $seconds = 20
 $fileName = "Geheugen-export" + "-" + $getDate + ".txt"
+$hostname = hostname
 
 # Define Arguments
 If ($args[0] -Is [int]) {$seconds = $args[0]};
@@ -48,11 +49,6 @@ else
 {
     # File doesn't exists
 }
-
-# Define hostname
-$hostname = hostname
-
-
 
 # Define If / Else conditions
 $fileExists = Test-Path -Path $fileLoc -PathType Leaf
