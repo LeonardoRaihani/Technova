@@ -113,14 +113,13 @@ If ($global:choicemade -eq "Aanvullen") {
         $end  = "-" *($reversePercent / 4)
         $begin = "0" *($timePassed / 4)
         $rawMemory = (Get-CIMInstance Win32_OperatingSystem | Select FreePhysicalMemory) -replace "[^0-9]" , ''
-        $megabitMemory = ($rawMemory / 1000)
         $percMemory = "{0:n2}" -f ($rawMemory / 1000000) + "GB vrij"
         Write-Host "[$begin$end]"
         Write-Host "|>     "  $percMemory "     <|"
         Write-Host "[$begin$end]"
         $currentTime = "{0:G}" -f (get-date)
         # MySQL values
-        $mysqlStamps = "('" + $hostname + "'," + $megabitMemory + ",'" + $mysqlDate + "'),"
+        $mysqlStamps = "('" + $hostname + "'," + $rawMemory + ",'" + $mysqlDate + "'),"
         Add-Content -Path $fileLoc -Value $mysqlStamps
         Start-Sleep 2
     }    
@@ -147,14 +146,13 @@ ElseIf ($global:choicemade -eq "Overschrijven") {
         $end  = "-" *($reversePercent / 4)
         $begin = "0" *($timePassed / 4)
         $rawMemory = (Get-CIMInstance Win32_OperatingSystem | Select FreePhysicalMemory) -replace "[^0-9]" , ''
-        $megabitMemory = ($rawMemory / 1000)
         $percMemory = "{0:n2}" -f ($rawMemory / 1000000) + "GB vrij"
         Write-Host "[$begin$end]"
         Write-Host "|>     "  $percMemory "     <|"
         Write-Host "[$begin$end]"
         $currentTime = "{0:G}" -f (get-date)
         # MySQL values
-        $mysqlStamps = "('" + $hostname + "'," + $megabitMemory + ",'" + $mysqlDate + "'),"
+        $mysqlStamps = "('" + $hostname + "'," + $rawMemory + ",'" + $mysqlDate + "'),"
         Add-Content -Path $fileLoc -Value $mysqlStamps
         Start-Sleep 2
     }  
@@ -187,14 +185,13 @@ Else {
         $end  = "-" *($reversePercent / 4)
         $begin = "0" *($timePassed / 4)
         $rawMemory = (Get-CIMInstance Win32_OperatingSystem | Select FreePhysicalMemory) -replace "[^0-9]" , ''
-        $megabitMemory = ($rawMemory / 1000)
         $percMemory = "{0:n2}" -f ($rawMemory / 1000000) + "GB vrij"
         Write-Host "[$begin$end]"
         Write-Host "|>     "  $percMemory "     <|"
         Write-Host "[$begin$end]"
         $currentTime = "{0:G}" -f (get-date)
         # MySQL values
-        $mysqlStamps = "('" + $hostname + "'," + $megabitMemory + ",'" + $mysqlDate + "'),"
+        $mysqlStamps = "('" + $hostname + "'," + $rawMemory + ",'" + $mysqlDate + "'),"
         Add-Content -Path $fileLoc -Value $mysqlStamps
         Start-Sleep 2
     }
@@ -245,4 +242,3 @@ Else{
 # Timestamp
 $currentTime = "{0:G}" -f (get-date)
 Write-Host "Script is afgerond om $currentTime"
-
