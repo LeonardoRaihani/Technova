@@ -4,8 +4,8 @@
   Auteur    :  Leonardo Al-Raihani
   Versie    :  Versie 0.2
   Datum     :  5 november 2022
-  Command	:  .\MonitorFreeMemory-Leonardo-Al-Raihani-Publicatie-versie.ps1 <seconds> <filename without txt-extension>
-  Voorbeeld	:  .\MonitorFreeMemory-Leonardo-Al-Raihani-Publicatie-versie.ps1 25 generated-tekst
+  Command   :  .\MonitorFreeMemory-Leonardo-Al-Raihani-Publicatie-versie.ps1 <seconds> <filename without txt-extension>
+  Voorbeeld :  .\MonitorFreeMemory-Leonardo-Al-Raihani-Publicatie-versie.ps1 25 generated-tekst
 
   Verwachte argumenten: aantal seconden (numerieke waarde) en bestandsnaam voor het export-bestand.
 #>
