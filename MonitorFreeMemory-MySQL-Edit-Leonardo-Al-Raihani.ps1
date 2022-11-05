@@ -4,7 +4,7 @@
   Auteur    :  Leonardo Al-Raihani
   Versie    :  Versie 0.1
   Datum     :  5 november 2022
-  Output	:  *.sql om in database ritmania de tabel "memoryusage" op te vullen.
+  Output    :  *.sql om in database ritmania de tabel "memoryusage" op te vullen.
   Arguments :  aantal seconden (numerieke waarde) en bestandsnaam voor het export-bestand.
   Interval  :  De While-loop vraagt en schrijft om de 2 seconden de memory weg.
   Command	:  .\MonitorFreeMemory-Leonardo-Al-Raihani-Publicatie-versie.ps1 <seconds> <filename without sql-extension>
