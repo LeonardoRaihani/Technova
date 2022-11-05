@@ -142,6 +142,24 @@ ElseIf ($global:choicemade -eq "Script stoppen") {
     exit
 }
 Else {
+    While ((Get-Date) -Lt $stopTime) {
+        Clear-Host
+        # Loading bar
+        $timeLeft = $stopTime - (Get-Date)
+        $timePassed = ((($seconds - $timeLeft.Seconds) / $seconds) * 100)
+        $reversePercent = ($timeLeft.Seconds / $seconds * 100)
+        $end  = "-" *($reversePercent / 4)
+        $begin = "0" *($timePassed / 4)
+        $rawMemory = (Get-CIMInstance Win32_OperatingSystem | Select FreePhysicalMemory) -replace "[^0-9]" , ''
+        $percMemory = "{0:n2}" -f ($rawMemory / 1000000) + "GB vrij"
+        Write-Host "[$begin$end]"
+        Write-Host "|>     "  $percMemory "     <|"
+        Write-Host "[$begin$end]"
+        $currentTime = "{0:G}" -f (get-date)
+        $logStamps = $currentTime + " || " + $hostname + " || " + $percMemory
+        Add-Content -Path $fileLoc -Value $logStamps
+        Start-Sleep 2
+    }
 }
 
 # Done message
